@@ -119,7 +119,7 @@ class _AuthPageState extends State<AuthPage> {
                                     width: double.infinity,
                                     padding: const EdgeInsets.all(12),
                                     decoration: BoxDecoration(
-                                      color: Colors.red.withOpacity(0.08),
+                                      color: Colors.red.withValues(alpha: 0.08),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Row(
@@ -213,7 +213,7 @@ class _Header extends StatelessWidget {
           width: 62,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.12),
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
           ),
           child: Icon(
             isRegister ? Icons.person_add_alt_1 : Icons.lock_open,

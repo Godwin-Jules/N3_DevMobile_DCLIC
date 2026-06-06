@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: const Color(0xFF3B82F6),
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
-          fillColor: Colors.black.withOpacity(0.04),
+          fillColor: Colors.black.withValues(alpha: 0.04),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
             borderSide: BorderSide.none,
