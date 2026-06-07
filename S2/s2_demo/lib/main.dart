@@ -42,20 +42,83 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: GestureDetector(
-          onTap: () {
-            _incrementCounter();
-            debugPrint('L\'utilisateur a appuyé sur le container.');
-          },
-          child: Container(
-            width: 200,
-            height: 100,
-            color: const Color.fromARGB(255, 236, 243, 33),
-            child: Center(child: Text('You clicked me $_counter time(s)')),
+      body: Column(
+        children: [
+          Card(
+            child: ListTile(
+              title: Text('Titre de la carte 1'),
+              subtitle: Text('Sous-titre de la carte 1'),
+            ),
           ),
-        ),
+          Card(
+            child: ListTile(
+              title: Text('Title de la carte 2'),
+              subtitle: Text('Sous-titre de la carte 2'),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text('Title de la carte 3'),
+              subtitle: Text('Sous-titre de la carte 3'),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text('Title de la carte 4'),
+              subtitle: Text('Sous-titre de la carte 4'),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text('Title de la carte 5'),
+              subtitle: Text('Sous-titre de la carte 5'),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text('Title de la carte 6'),
+              subtitle: Text('Sous-titre de la carte 6'),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text('Title de la carte 7'),
+              subtitle: Text('Sous-titre de la carte 7'),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text('Title de la carte 8'),
+              subtitle: Text('Sous-titre de la carte 8'),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text('Title de la carte 9'),
+              subtitle: Text('Sous-titre de la carte 9'),
+            ),
+          ),
+          // Card(
+          //   child: ListTile(
+          //     title: Text('Title de la carte 10'),
+          //     subtitle: Text('Sous-titre de la carte 10'),
+          //   ),
+          // ),
+          // Card(
+          //   child: ListTile(
+          //     title: Text('Title de la carte 11'),
+          //     subtitle: Text('Sous-titre de la carte 11'),
+          //   ),
+          // ),
+          // Card(
+          //   child: ListTile(
+          //     title: Text('Title de la carte 12'),
+          //     subtitle: Text('Sous-titre de la carte 12'),
+          //   ),
+          // ),
+        ],
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint('You press the add button');
