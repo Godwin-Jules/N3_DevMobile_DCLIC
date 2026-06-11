@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "469205152662",
+    "project_id": "dclic-flutter",
+    "storage_bucket": "dclic-flutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469205152662:android:832a899c8b4633813863b7",
+        "android_client_info": {
+          "package_name": "com.example.dclic_testfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzG2cLL6kg_5ggBAGvwe0wNOspD1O4m8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
