@@ -35,12 +35,12 @@ class InterfaceNotification extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.done, size: 50, color: Colors.green),
+                        const Icon(Icons.done, size: 40, color: Colors.green),
                         const SizedBox(width: 10),
                         Text(
                           data["sous_titre"],
                           style: const TextStyle(
-                            fontSize: 25,
+                            fontSize: 23,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
