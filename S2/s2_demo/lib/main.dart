@@ -27,14 +27,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,24 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
               subtitle: Text('Sous-titre de la carte 9'),
             ),
           ),
-          // Card(
-          //   child: ListTile(
-          //     title: Text('Title de la carte 10'),
-          //     subtitle: Text('Sous-titre de la carte 10'),
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     title: Text('Title de la carte 11'),
-          //     subtitle: Text('Sous-titre de la carte 11'),
-          //   ),
-          // ),
-          // Card(
-          //   child: ListTile(
-          //     title: Text('Title de la carte 12'),
-          //     subtitle: Text('Sous-titre de la carte 12'),
-          //   ),
-          // ),
         ],
       ),
 
