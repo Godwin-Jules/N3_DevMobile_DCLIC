@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "754035425217",
+    "project_id": "maginfo-firebase",
+    "storage_bucket": "maginfo-firebase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754035425217:android:1f0dee3eead600f9b4b940",
+        "android_client_info": {
+          "package_name": "com.example.maginfo_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHlxMrQj3P9BXvZEiUSjnB49s8f9fRGX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
