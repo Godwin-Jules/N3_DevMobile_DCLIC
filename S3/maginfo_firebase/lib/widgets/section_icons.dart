@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maginfo_firebase/utils/contants.dart';
 
 class SectionIcons extends StatelessWidget {
   const SectionIcons({super.key});
@@ -31,12 +32,12 @@ class _IconAction extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
-          Icon(icon, color: Color.fromARGB(255, 255, 70, 14)),
+          Icon(icon, color: mainColor),
           const SizedBox(height: 5),
           Text(
             label,
             style: const TextStyle(
-              color: Color.fromARGB(255, 255, 70, 14),
+              color: mainColor,
               fontWeight: FontWeight.bold,
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maginfo_firebase/utils/contants.dart';
 import 'package:maginfo_firebase/widgets/section_icons.dart';
 import 'package:maginfo_firebase/widgets/section_service.dart';
 import 'package:maginfo_firebase/widgets/section_text.dart';
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
         title: Text('Magazine Info'),
         foregroundColor: Colors.white,
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 255, 70, 14),
+        backgroundColor: mainColor,
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {},
