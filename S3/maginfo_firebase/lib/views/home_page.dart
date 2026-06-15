@@ -1,38 +1,68 @@
 import 'package:flutter/material.dart';
+import 'package:maginfo_firebase/controllers/redacteur_controller.dart';
 import 'package:maginfo_firebase/utils/contants.dart';
+import 'package:maginfo_firebase/views/add_redacteur_page.dart';
+import 'package:maginfo_firebase/views/redacteur_info_page.dart';
 import 'package:maginfo_firebase/widgets/section_icons.dart';
 import 'package:maginfo_firebase/widgets/section_service.dart';
 import 'package:maginfo_firebase/widgets/section_text.dart';
 import 'package:maginfo_firebase/widgets/section_title.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final RedacteurController controller;
+  const HomePage({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Magazine Info'),
+        title: const Text('Magazine Info'),
         foregroundColor: Colors.white,
         centerTitle: true,
         backgroundColor: mainColor,
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {},
-          color: Colors.white,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: mainColor),
+              child: const Text(
+                'Magazine Infos',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person_add),
+              title: const Text('Ajouter un rédacteur'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => AddRedacteurPage(controller: controller),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.people),
+              title: const Text('Informations des rédacteurs'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => RedacteurInfoPage(controller: controller),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-            color: Colors.white,
-          ),
-        ],
       ),
       body: Column(
         children: [
           Image(
-            image: AssetImage('assets/images/hero.png'),
+            image: const AssetImage('assets/images/hero.png'),
             width: double.infinity,
             height: 250,
             fit: BoxFit.cover,
