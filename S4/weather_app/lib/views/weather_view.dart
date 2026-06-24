@@ -73,15 +73,9 @@ class _WeatherViewState extends State<WeatherView>
                         filled: true,
                         fillColor: Colors.white,
                         hintText: "Nom de la ville",
-                        suffixIcon: IconButton(
-                          icon: const Icon(Icons.search),
-                          onPressed: () async {
-                            await controller.fetchWeather(
-                              cityController.text.trim(),
-                            );
-
-                            fadeController.forward(from: 0);
-                          },
+                        prefixIcon: Icon(Icons.location_city_rounded),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
                         ),
                       ),
                     ),
@@ -101,6 +95,42 @@ class _WeatherViewState extends State<WeatherView>
                             ),
                           )
                           .toList(),
+                    ),
+
+                    const SizedBox(height: 15),
+
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        icon: const Icon(Icons.cloud),
+                        label: const Text("Obtenir la météo"),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        onPressed: () async {
+                          if (cityController.text.trim().isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text("Veuillez saisir une ville"),
+                              ),
+                            );
+                            return;
+                          }
+
+                          fadeController.forward(from: 0);
+
+                          await controller.fetchWeather(
+                            cityController.text.trim(),
+                          );
+
+                          if (controller.status == WeatherStatus.success) {
+                            fadeController.forward(from: 0);
+                          }
+                        },
+                      ),
                     ),
 
                     const SizedBox(height: 20),
