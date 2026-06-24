@@ -48,9 +48,9 @@ class WeatherDetailCard extends StatelessWidget {
       decoration: BoxDecoration(
         // Fond blanc semi-transparent : laisse transparaître le dégradé
         // de fond de l'écran derrière la carte (effet "glassmorphism").
-        color: Colors.white.withOpacity(0.15),
+        color: Colors.white.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.2)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +72,7 @@ class WeatherDetailCard extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: Colors.white.withValues(alpha: 0.7),
               fontSize: 12,
             ),
           ),
@@ -128,7 +128,7 @@ class _WeatherSearchBarState extends State<WeatherSearchBar> {
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
             hintText: 'Entrez le nom d\'une ville...',
-            hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+            hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.6)),
             prefixIcon: const Icon(Icons.search, color: Colors.white70),
             // Bouton "croix" pour vider le champ rapidement, affiché
             // seulement si le champ contient du texte.
@@ -143,7 +143,7 @@ class _WeatherSearchBarState extends State<WeatherSearchBar> {
                   )
                 : null,
             filled: true,
-            fillColor: Colors.white.withOpacity(0.15),
+            fillColor: Colors.white.withValues(alpha: 0.15),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(14),
               borderSide: BorderSide.none,
@@ -195,10 +195,10 @@ class _WeatherSearchBarState extends State<WeatherSearchBar> {
                     decoration: BoxDecoration(
                       // Fond explicitement blanc semi-transparent : visible
                       // sur n'importe quel dégradé coloré de fond.
-                      color: Colors.white.withOpacity(0.18),
+                      color: Colors.white.withValues(alpha: 0.18),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.35),
+                        color: Colors.white.withValues(alpha: 0.35),
                         width: 1,
                       ),
                     ),
@@ -242,7 +242,7 @@ class WeatherInitialWidget extends StatelessWidget {
               Icon(
                     Icons.public,
                     size: 100,
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white.withValues(alpha: 0.7),
                   )
                   // flutter_animate : fait flotter doucement l'icône de haut
                   // en bas, en boucle infinie, pour donner vie à l'écran d'accueil.
@@ -269,7 +269,7 @@ class WeatherInitialWidget extends StatelessWidget {
               Text(
                 'pour obtenir la météo en temps réel',
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withValues(alpha: 0.7),
                   fontSize: 14,
                 ),
               ),
@@ -304,7 +304,7 @@ class WeatherLoadingWidget extends StatelessWidget {
           Text(
             'Recherche en cours...',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.85),
+              color: Colors.white.withValues(alpha: 0.85),
               fontSize: 15,
             ),
           ),
@@ -343,7 +343,7 @@ class WeatherErrorWidget extends StatelessWidget {
                 Icon(
                   Icons.error_outline_rounded,
                   size: 64,
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                 ),
                 const SizedBox(height: 16),
                 Text(

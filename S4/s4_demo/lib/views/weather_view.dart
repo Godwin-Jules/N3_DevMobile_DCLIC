@@ -9,7 +9,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 import '../controllers/weather_controller.dart';
 import '../models/weather_model.dart';
@@ -192,7 +191,7 @@ class _WeatherViewState extends State<WeatherView>
                             icon: const Icon(Icons.search),
                             label: const Text('Obtenir la météo'),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white.withOpacity(0.25),
+                              backgroundColor: Colors.white.withValues(alpha: 0.25),
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(vertical: 14),
                               shape: RoundedRectangleBorder(
@@ -294,7 +293,7 @@ class _WeatherDataView extends StatelessWidget {
             Text(
               WeatherUtils.formatDate(DateTime.now()),
               style: TextStyle(
-                color: Colors.white.withOpacity(0.75),
+                color: Colors.white.withValues(alpha: 0.75),
                 fontSize: 13,
               ),
             ),
@@ -317,7 +316,7 @@ class _WeatherDataView extends StatelessWidget {
             Text(
               'Ressenti ${WeatherUtils.formatTemp(weather.feelsLike)}',
               style: TextStyle(
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.white.withValues(alpha: 0.8),
                 fontSize: 14,
               ),
             ),
@@ -327,7 +326,7 @@ class _WeatherDataView extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
+                color: Colors.white.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
@@ -415,7 +414,7 @@ class _WeatherDataView extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.12),
+            color: Colors.white.withValues(alpha: 0.12),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Row(
@@ -441,7 +440,7 @@ class _WeatherDataView extends StatelessWidget {
                   Text(
                     'Lever',
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.7),
+                      color: Colors.white.withValues(alpha: 0.7),
                       fontSize: 12,
                     ),
                   ),
@@ -451,7 +450,7 @@ class _WeatherDataView extends StatelessWidget {
               Container(
                 height: 40,
                 width: 1,
-                color: Colors.white.withOpacity(0.2),
+                color: Colors.white.withValues(alpha: 0.2),
               ),
               // Coucher du soleil
               Column(
@@ -473,7 +472,7 @@ class _WeatherDataView extends StatelessWidget {
                   Text(
                     'Coucher',
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.7),
+                      color: Colors.white.withValues(alpha: 0.7),
                       fontSize: 12,
                     ),
                   ),
