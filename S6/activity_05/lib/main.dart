@@ -1,122 +1,142 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MonApplication());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Etudiant {
+  final String nom;
+  final double moyenne;
+  Etudiant({required this.nom, required this.moyenne});
+}
 
-  // This widget is the root of your application.
+class MonApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: PageAccueil(),
+      routes: {'/details': (context) => DetailPage()},
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class PageAccueil extends StatelessWidget {
+final List<Etudiant> etudiants = [
+Etudiant(nom: 'Alice', moyenne: 17.25),
+Etudiant(nom: 'Bob', moyenne: 16.5),
+Etudiant(nom: 'Charlie', moyenne: 11.75),
+Etudiant(nom: 'David', moyenne: 12.75),
+Etudiant(nom: 'Eve', moyenne: 13.5),
+];
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+appBar: AppBar(
+title: Text('Liste des étudiants'),
+),
+body: Padding(
+padding:EdgeInsets.all(16.0),
+mainAxisAlignment: MainAxisAlignment.start,
+crossAxisAlignment: CrossAxisAlignment.stretch,
+children: <Widget>[
+Text(
+'Liste des étudiants et de leurs moyennes :',
+style: TextStyle(fontSize: 18),
+),
+SizedBox(height: 16.0),
+Expanded(
+child: ListView.builder(
+itemCount: etudiants.length,
+itemBuilder: (context, index) {
+final etudiant = etudiants[index];
+return Container(
+margin: EdgeInsets.only(
+bottom: 16.0),
+decoration: BoxDecoration(
+color: Colors.grey[200],
+borderRadius:
+BorderRadius.circular(10.0),
+),
+child: ListTile(
+title: Text('Nom: ${etudiant.nom}'),
+subtitle: Text('Moyenne : ${etudiant.moyenne}'),
+onTap: () {
+Navigator.pushNamed(
+context,
+'/details',
+arguments: etudiant,
+);
+},
+),
+);
+},
+),
+),
+ElevatedButton(
+child: Text('Calculer la moyenne de la classe’),
+onPressed: () {
+final average = calculateMoyenne(etudiants);
+moyenneAlertDialog(context, average); // Afficher l'alerte
+},
+),
+],
+),
+),
+);
+}
+double calculateMoyenne(List<Etudiant> etudiants) {
+double total = 0.0;
+for (var etudiant in etudiants) {
+var total = 0;
+total += etudiant.moyenne as int;
+}
+return total / etudiants.length;
+}
+void moyenneAlertDialog(BuildContext context, double average) {
+showDialog(
+context: context,
+builder: (BuildContext context) {
+return AlertDialog(
+title: const Text('Moyenne des étudiants'),
+content: Text('La moyenne des étudiants est : $average'),
+actions: <Widget>[
+TextButton(
+onPressed: () {
+Navigator.of(context).pop();
+},
+child: Text('OK'),
+),
+],
+);
+},
+);
+}
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
+class DetailPage extends StatelessWidget {
+@override
+Widget build(BuildContext context) {
+final etudiant = ModalRoute.of(context)!.settings.arguments as Etudiant;
+return Scaffold(
+appBar: AppBar(
+title: Text('Détails de l\'étudiant'),
+),
+body: Center(
+child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: <Widget>[
+Text(
+'Nom de l\'étudiant : ${etudiant.nom}',
+style: TextStyle(fontSize: 18),
+),
+Text(
+'Moyenne : ${etudiant.moyenne}',
+style: TextStyle(fontSize: 18),
+),
+],
+),
+),
+);
+}
 }
